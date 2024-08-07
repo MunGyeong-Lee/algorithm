@@ -1,3 +1,4 @@
+
 T = int(input())
 for tc in range(1, T+1):
 
@@ -11,7 +12,7 @@ for tc in range(1, T+1):
 
         else:
             if len(stack) > 0:
-                poped = stack.pop()
+                stack.pop()
                 result = 'YES'
             else:
                 result = 'NO'
