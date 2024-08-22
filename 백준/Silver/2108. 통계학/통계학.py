@@ -1,32 +1,33 @@
-n=int(input())
-arr=[]
 
-for i in range(n):
-    arr.append(int(input()))
+N = int(input())
+num = [int(input()) for _ in range(N)]
+num.sort()  # [-3, -2, -2, -1, -1]
 
-arr.sort()#중앙값을 구하기 위해 정렬
+#산술 평균
+print(round(sum(num)/N))
 
-print(round(sum(arr)/len(arr)))#1) 산술평균
-print(arr[len(arr)//2])#2) 중앙값
+# 중앙값
+print(num[N//2])
 
-#최빈값
-dic=dict()
-for i in arr:#빈도수 구하기
-    if i in dic:
-        dic[i]+=1
+
+# 최빈값
+dic={}
+for i in num:
+    if i in dic :
+        dic[i] +=1
     else:
-        dic[i]=1
-        
-mx=max(dic.values())#빈도수 중 최대값 구하기
-mx_dic=[]#최빈값 숫자를 저장할 배열
+        dic[i] = 1
 
-for i in dic:#빈도수 딕셔너리에서
-    if mx==dic[i]:#최빈값의 key저장
-        mx_dic.append(i)
+max_fre = max(dic.values())
+max_fre_lst =[]
+for i in dic:
+    if max_fre == dic[i]:
+        max_fre_lst.append(i)
 
-if len(mx_dic)>1:#최빈값이 여러개라면
-    print(mx_dic[1])#두번째로 작은 값  3)최빈값
-else:#하나라면
-    print(mx_dic[0])#해당 값 출력  3)최빈값
-    
-print(max(arr)-min(arr))#4) 범위
+if len(max_fre_lst) > 1:
+    print(max_fre_lst[1])
+else:
+    print(max_fre_lst[0])
+
+# 범위
+print(max(num) - min(num))
