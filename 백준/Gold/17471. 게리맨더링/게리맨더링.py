@@ -3,19 +3,20 @@ from itertools import combinations
 
 def dfs(section):
     start = section[0]
-    visited = {start}
+    visited = [False] * (N + 1)
+    visited[start] = True
     stack = [start]
 
     # DFS로 연결 여부 확인
     while stack:
         v = stack.pop()
         for w in arr[v]:
-            if w in section and w not in visited:
-                visited.add(w)
+            if w in section and not visited[w]:
+                visited[w] = True
                 stack.append(w)
 
     # section의 모든 노드가 방문되었는지 확인
-    return len(visited) == len(section)
+    return all(visited[node] for node in section)
 
 def find_min_population_difference():
     min_result = float('inf')
