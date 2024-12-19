@@ -8,20 +8,15 @@ public class Main {
         int H = sc.nextInt();
         int M = sc.nextInt();
 
-
-        int i = 15;
-        int j = 1;
-        int k = 45;
-
         if(M < 45){
-            M += i ;
+            M += 15 ;
             if (H > 0){
-                H -= j;
+                H -= 1;
             } else{
                 H = 23;
             }
         } else{
-            M -= k;
+            M -= 45;
         }
         System.out.println(H + " " + M);
 
