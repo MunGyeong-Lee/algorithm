@@ -12,18 +12,17 @@ public class Main {
      int X = Integer.parseInt(NandX[1]);
 
 
-     boolean first = true; // 첫번째 출력 여부를 확인하는 변수
+     StringBuilder result = new StringBuilder();
      for(String num : inputArray){
          if(Integer.parseInt(num) < X) {
-
-             if(!first){
-                 bw.write(" ");  // 첫 번째 숫자가 아닌 경우 공백 추가
+             if(result.length()>0){
+                 result.append(" ");
              }
-             bw.write(num);
-             first = false;
-
+             result.append(num);
          }
      }
+     bw.write(result.toString());
+     
      bw.flush();
      br.close();
      bw.close();
